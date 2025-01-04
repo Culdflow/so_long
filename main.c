@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 03:35:20 by dfeve             #+#    #+#             */
-/*   Updated: 2024/12/31 02:01:28 by dfeve            ###   ########.fr       */
+/*   Updated: 2024/12/28 00:40:29 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ int	main(int argc, char **argv)
 	t_mlx	*mlx;
 
 	if (argc != 2)
-		error("wrong number of arguments (must be 1)", NULL);
+		error("wrong number of arguments (must be 1)");
 	mlx = malloc(sizeof(t_mlx));
 	mlx->framerate = 0;
 	mlx->map = read_map(argv[1]);
 	mlx->map->map_pathfinding = copy_map(mlx->map);
 	check_map(mlx->map);
 	if (check_pathfinding(mlx->map) != 1)
-		error("not possible to finish map", mlx);
+		error("not possible to finish map");
 	mlx->mlx = mlx_init();
 	mlx->win = mlx_new_window(mlx->mlx, 1920, 1010, "fenetre de con");
 	mlx->player = setup_player(mlx->map);

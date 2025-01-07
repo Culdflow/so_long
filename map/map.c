@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 00:29:30 by dfeve             #+#    #+#             */
-/*   Updated: 2025/01/07 01:29:10 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/07 01:40:24 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static char	**ft_upscale_map(char **map, char *new_line)
 	return (result);
 }
 
-static int	parse_map(t_map *map, char *map_line, int i, t_mlx *mlx)//Parses line from map
+static int	parse_map(t_map *map, char *map_line,
+				int i, t_mlx *mlx)//Parses line from map
 {
 	if (i == 0)
 		map->size.x = ft_strlen(map_line);
@@ -73,7 +74,7 @@ static void	read_map_loop(char *map_buf, t_map *result, int fd, t_mlx *mlx)
 		free(map_buf);
 		map_buf = get_next_line(fd);
 		if (map_buf)
-		{	
+		{
 			if (ft_strchr(map_buf, '\n') != NULL)
 				*ft_strchr(map_buf, '\n') = 0;
 			result->map = ft_upscale_map(result->map, map_buf);

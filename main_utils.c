@@ -6,13 +6,13 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 20:01:17 by dfeve             #+#    #+#             */
-/*   Updated: 2025/01/07 00:35:16 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/07 01:39:11 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_mlx	*init_mlx()
+t_mlx	*init_mlx(void)
 {
 	t_mlx	*mlx;
 

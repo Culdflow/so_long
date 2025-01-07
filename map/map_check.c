@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:44:11 by dfeve             #+#    #+#             */
-/*   Updated: 2025/01/06 23:24:26 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/07 01:41:48 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void	check_map(t_map *map, t_mlx *mlx)
 		cursor.x = 0;
 		while (map->map[cursor.y][cursor.x])
 		{
-			if (check_tile(map, map->map[cursor.y][cursor.x], cursor, &pos_exit) == -1)
+			if (check_tile(map, map->map[cursor.y][cursor.x],
+								cursor, &pos_exit) == -1)
 				error("unsupported character in map", mlx);
 			if (map->map[cursor.y][cursor.x] == 'B')
 				open_zero.x++;

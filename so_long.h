@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 08:31:51 by dfeve             #+#    #+#             */
-/*   Updated: 2024/12/28 00:38:40 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/07 00:08:01 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,11 @@ typedef struct s_mlx//mlx structure
 //--------------------MAIN------------------------
 
 void			exit_game(t_mlx *mlx);
+t_mlx			*init_mlx();
 
 //--------------------ERROR-----------------------
 
-void			error(char	*text);
+void			error(char	*text, t_mlx *mlx);
 
 //--------------------render-----------------------
 
@@ -102,9 +103,9 @@ void			put_map(t_mlx *mlx, t_map *map);
 char			**copy_map(t_map *map);
 int				collectible_len(t_collectible *el);
 void			clear_list(t_collectible *start);
-void			check_map(t_map *map);
+void			check_map(t_map *map, t_mlx *mlx);
 int				check_map_surrounded(t_map *map);
-t_map			*read_map(char *src);
+t_map			*read_map(char *src, t_mlx *mlx);
 t_map			*map_null(void);
 t_collectible	*add_collectible(t_map *start, t_collectible *el);
 t_collectible	*new_collectible(t_vector pos);

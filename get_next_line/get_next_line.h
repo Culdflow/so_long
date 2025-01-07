@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:40:03 by dfeve             #+#    #+#             */
-/*   Updated: 2024/11/27 05:11:28 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/07 00:34:06 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 # include "../so_long.h"
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2
+#  define BUFFER_SIZE 1
 # endif
 
 char	*ft_strjoin(char const *s1, char const *s2);

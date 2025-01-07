@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 03:35:20 by dfeve             #+#    #+#             */
-/*   Updated: 2024/12/28 00:40:29 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/07 00:06:40 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,18 @@ int	main(int argc, char **argv)
 	t_mlx	*mlx;
 
 	if (argc != 2)
-		error("wrong number of arguments (must be 1)");
-	mlx = malloc(sizeof(t_mlx));
+		error("wrong number of arguments (must be 1)", NULL);
+	mlx = init_mlx();
+	mlx->imgs[0].img = NULL;
 	mlx->framerate = 0;
-	mlx->map = read_map(argv[1]);
+	mlx->map = read_map(argv[1], mlx);
 	mlx->map->map_pathfinding = copy_map(mlx->map);
-	check_map(mlx->map);
+	check_map(mlx->map, mlx);
 	if (check_pathfinding(mlx->map) != 1)
-		error("not possible to finish map");
+		error("not possible to finish map", mlx);
 	mlx->mlx = mlx_init();
 	mlx->win = mlx_new_window(mlx->mlx, 1920, 1010, "fenetre de con");
 	mlx->player = setup_player(mlx->map);
-	mlx->imgs[0].img = NULL;
 	mlx_hook(mlx->win, ON_KEYDOWN, 1L << 0, _input, mlx);
 	mlx_hook(mlx->win, ON_DESTROY, 0, mlx_loop_end, mlx->mlx);
 	mlx_loop_hook(mlx->mlx, game_loop, mlx);

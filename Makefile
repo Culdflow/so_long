@@ -8,6 +8,7 @@ CFILES = main.c \
 		utils/vectors.c \
 		utils/vectors_utils.c \
 		utils/operations.c \
+		utils/libft.c \
 		player/player.c \
 		get_next_line/get_next_line.c \
 		get_next_line/get_next_line_utils.c \

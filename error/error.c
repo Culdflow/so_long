@@ -12,8 +12,10 @@
 
 #include "error.h"
 
-void	error(char *text)
+void	error(char *text, t_mlx *mlx)
 {
+	if (mlx)
+		exit_game(mlx);
 	perror(text);
 	exit(0);
 }

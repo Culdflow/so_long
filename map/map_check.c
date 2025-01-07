@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:44:11 by dfeve             #+#    #+#             */
-/*   Updated: 2024/12/28 00:42:53 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/06 23:24:26 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	check_map_surrounded(t_map *map)
 	return (1);
 }
 
-static void	check_tile(t_map *map, char tile,
+static int	check_tile(t_map *map, char tile,
 			t_vector cursor, t_vector *pos_exit)
 {
 	if (tile != 'P' && tile != 'E' && tile != 'C'
 		&& tile != '0' && tile != '1' && tile != 'B')
-		error("unauthorized character in map");
+		return (-1);
 	if (tile == 'E')
 	{
 		pos_exit->y++;
@@ -59,9 +59,10 @@ static void	check_tile(t_map *map, char tile,
 		pos_exit->x++;
 		map->start_pos = cursor;
 	}
+	return (0);
 }
 
-void	check_map(t_map *map)
+void	check_map(t_map *map, t_mlx *mlx)
 {
 	t_vector	cursor;
 	t_vector	pos_exit;
@@ -75,17 +76,17 @@ void	check_map(t_map *map)
 		cursor.x = 0;
 		while (map->map[cursor.y][cursor.x])
 		{
-			check_tile(map, map->map[cursor.y][cursor.x], cursor, &pos_exit);
+			if (check_tile(map, map->map[cursor.y][cursor.x], cursor, &pos_exit) == -1)
+				error("unsupported character in map", mlx);
 			if (map->map[cursor.y][cursor.x] == 'B')
 				open_zero.x++;
-			if (map->map[cursor.y][cursor.x] == '0')
+			if (map->map[cursor.y][cursor.x++] == '0')
 				open_zero.y++;
-			cursor.x++;
 		}
 		cursor.y++;
 	}
 	if (map->collectible_list == NULL || !compare_vec2(pos_exit, vec2(1, 1))
 		|| open_zero.x > 0 || open_zero.y <= 0
 		|| check_map_surrounded(map) == 0)
-		error("map invalid");
+		error("map invalid", mlx);
 }

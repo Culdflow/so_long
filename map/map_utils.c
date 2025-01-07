@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 08:36:58 by dfeve             #+#    #+#             */
-/*   Updated: 2024/12/22 23:52:25 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/06 23:25:41 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	render_tile(t_mlx *mlx, t_map *map,
 	else if (map->map[map_cursor.y][map_cursor.x] == 'B')
 		xpm_file_to_img(mlx, "sprites/door_open.xpm", cursor);
 	else
-		error("Invalid character in map");
+		error("Invalid character in map", mlx);
 }
 
 void	put_map(t_mlx *mlx, t_map *map)

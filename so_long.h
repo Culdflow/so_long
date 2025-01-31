@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 08:31:51 by dfeve             #+#    #+#             */
-/*   Updated: 2025/01/07 01:39:30 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/31 03:38:04 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ t_map			*map_null(void);
 t_collectible	*add_collectible(t_map *start, t_collectible *el);
 t_collectible	*new_collectible(t_vector pos);
 t_collectible	*get_last_collectible(t_collectible *start);
+void			print_map(char **map);
 
 //--------------------player-----------------------
 t_player		*setup_player(t_map *map);

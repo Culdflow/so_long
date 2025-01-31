@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:44:11 by dfeve             #+#    #+#             */
-/*   Updated: 2025/01/07 01:47:23 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/31 03:24:22 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ void	check_map(t_map *map, t_mlx *mlx)
 	pos_exit = vec2(0, 0);
 	open_zero = vec2(0, 0);
 	cursor = vec2(0, -1);
-	while (map->map[cursor.y++])
+	while (map && map->map && map->map[cursor.y++])
 	{
 		cursor.x = 0;
-		while (map->map[cursor.y][cursor.x])
+		while (map->map[cursor.y] && map->map[cursor.y][cursor.x])
 		{
 			if (check_tile(map, map->map[cursor.y][cursor.x],
 				cursor, &pos_exit) == -1)

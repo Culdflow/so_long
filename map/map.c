@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 00:29:30 by dfeve             #+#    #+#             */
-/*   Updated: 2025/01/07 01:40:24 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/31 03:37:45 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ static char	**ft_upscale_map(char **map, char *new_line)
 	char	**result;
 	int		i;
 
-	if (!new_line)
-		return (map);
 	i = 0;
 	while (map && map[i])
 		i++;
 	result = malloc(sizeof(char *) * (i + 2));
+	if (!result || !new_line)
+		return(map);
 	i = 0;
 	while (map && map[i])
 	{
@@ -110,4 +110,19 @@ t_map	*read_map(char *src, t_mlx *mlx)
 	close(fd);
 	result->map2 = copy_map(result);
 	return (result);
+}
+
+void	print_map(char **map)
+{
+	t_vector	cursor;
+
+	cursor = vec2(0, 0);
+	while (map[cursor.y])
+	{
+		cursor.x = 0;
+		while(map[cursor.y][cursor.x])
+			ft_printf("%c", map[cursor.y][cursor.x++]);
+		ft_printf("\n");
+		cursor.y++;
+	}
 }
